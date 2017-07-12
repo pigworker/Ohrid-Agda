@@ -46,7 +46,7 @@ _+V_ : forall {X n m} -> Vec X n -> Vec X m -> Vec X (n +N m)
 
 vec : forall {n X} -> X -> Vec X n
 vec {zero} x = []
-vec {suc x} x₁ = x₁ :: vec x₁
+vec {suc n} x = x :: vec x
 
 -- HINT: you may need to override default invisibility
 
