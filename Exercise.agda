@@ -177,6 +177,7 @@ module VECTRAV {F : Set -> Set}(A : Applicative F) where
   traverse : forall {n S T} -> (S -> F T) -> Vec S n -> F (Vec T n)
   traverse f ss = {!!}
 
+open VECTRAV
 
 ----------------------------------------------------------------------------
 -- ??? 0.8 monoids make constant applicatives                 (score: ? / 1)
