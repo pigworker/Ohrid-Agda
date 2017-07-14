@@ -122,3 +122,13 @@ iterMonadIx C = record { retIx = retHelp ; extendIx = extHelp } where
   force (extHelp k t) with force t
   force (extHelp k t) | ret p = force (k p)
   force (extHelp k t) | do (s , f)  = do (s , \ p -> extHelp k (f p))
+
+-- cofree comonad
+
+record CofreeComonad {I}(C : I => I)(X : I -> Set)(i : I) : Set where
+  coinductive
+  constructor _&&_
+  field
+    alive : X i
+    ready : IC C (CofreeComonad C X) i
+
